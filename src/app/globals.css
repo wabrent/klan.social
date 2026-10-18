@@ -1,26 +1,267 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   klan.social — bold brutalist
+   cream paper, heavy black outlines, hard offset shadows,
+   orange accent, condensed uppercase display
+---------------------------------------------------------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f2ea;
+  --surface: #ffffff;
+  --surface-2: #fffdf5;
+  --border: #141210;
+  --border-soft: #141210;
+  --foreground: #141210;
+  --muted: #6f6a61;
+  --accent: #ff4d17;
+  --accent-deep: #d63a08;
+  --accent-soft: #ffd9c9;
+  --shadow-hard: 6px 6px 0 #141210;
+  --shadow-hard-sm: 4px 4px 0 #141210;
+  --shadow-hard-lg: 10px 10px 0 #141210;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-edge: var(--border);
+  --color-edge-soft: var(--border-soft);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-lime: var(--accent);
+  --color-lime-deep: var(--accent-deep);
+  --color-clay: var(--accent);
+  --color-clay-soft: var(--accent-soft);
+  --color-moss: var(--accent);
+  --color-ochre: var(--accent);
+  --color-rose: #b3260b;
+  --color-ink: #141210;
+  --font-sans: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- brand wordmark ---------- */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.wordmark::after {
+  content: ".";
+  color: var(--accent);
+}
+
+.wordmark-star {
+  display: none;
+}
+
+/* ---------- headings ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+/* ---------- buttons ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--accent);
+  box-shadow: var(--shadow-hard-sm);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.5rem;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: 6px 6px 0 var(--border);
+  transform: translate(-1px, -1px);
+}
+
+.btn-primary:active {
+  box-shadow: 1px 1px 0 var(--border);
+  transform: translate(3px, 3px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.45rem;
+  box-shadow: var(--shadow-hard-sm);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--surface-2);
+  box-shadow: 6px 6px 0 var(--border);
+  transform: translate(-1px, -1px);
+}
+
+.btn-ghost:active {
+  box-shadow: 1px 1px 0 var(--border);
+  transform: translate(3px, 3px);
+}
+
+/* ---------- cards ---------- */
+.card {
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: var(--shadow-hard);
+}
+
+.card-hover {
+  transition:
+    transform 0.13s ease,
+    box-shadow 0.13s ease;
+}
+
+.card-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-lg);
+}
+
+.row-card {
+  border-bottom: 2px solid var(--border);
+  transition: background 0.1s ease;
+}
+
+.row-card:hover {
+  background: var(--surface-2);
+}
+
+/* ---------- ticker ---------- */
+.ticker {
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background: var(--ink, #141210);
+  color: #fff;
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  animation: ticker 40s linear infinite;
+}
+
+.ticker-viewport:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- badges ---------- */
+.badge-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+/* ---------- intro underline ---------- */
+.intro-underline path {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 3;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1s ease forwards 0.3s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .intro-underline path,
+  .fade-up {
+    animation: none;
+  }
 }

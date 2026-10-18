@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Вариант C — Смелый контрастный</title>
+<style>
+  :root{
+    --bg:#f5f2ea; --ink:#141210; --acc:#ff4d17; --mut:#6f6a61; --line:#141210;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.5 "Helvetica Neue",Arial,sans-serif;padding:40px 20px}
+  .wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:26px;align-items:start}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+  .brut{border:2px solid var(--line);border-radius:4px;background:var(--bg);box-shadow:6px 6px 0 var(--ink)}
+  .hero{padding:56px 44px}
+  .tag{display:inline-flex;gap:8px;align-items:center;border:2px solid var(--line);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:#fff}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  h1{margin:24px 0 0;font-size:62px;line-height:.96;letter-spacing:-.04em;font-weight:900;text-transform:uppercase}
+  h1 em{font-style:normal;color:var(--acc)}
+  p.sub{margin:20px 0 0;max-width:460px;color:var(--mut);font-size:17px}
+  .btns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{border:2px solid var(--line);border-radius:999px;padding:12px 24px;font-weight:800;font-size:15px;cursor:pointer;text-transform:uppercase;letter-spacing:.04em}
+  .btn.p{background:var(--acc);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+  .btn.g{background:#fff;color:var(--ink)}
+  .stats{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--line);background:#fff}
+  .stats div{padding:18px;text-align:center;border-right:2px solid var(--line)}
+  .stats div:last-child{border:0}
+  .stats b{display:block;font-size:30px;font-weight:900;color:var(--acc);font-variant-numeric:tabular-nums}
+  .stats span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  h2{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin:0 0 12px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  .step{border:2px solid var(--line);border-radius:4px;background:#fff;padding:20px;box-shadow:4px 4px 0 var(--ink)}
+  .step .n{font-size:34px;font-weight:900;color:var(--acc);line-height:1}
+  .step b{display:block;margin-top:10px;font-size:17px;text-transform:uppercase;letter-spacing:-.01em}
+  .step p{color:var(--mut);margin-top:6px;font-size:14px}
+  .post{display:flex;gap:12px;padding:16px;border-bottom:2px solid var(--line);background:#fff}
+  .post:last-child{border:0}
+  .av{width:40px;height:40px;border-radius:50%;flex:none;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:900;font-size:13px}
+  .nm{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .nm b{font-size:14px;font-weight:800}
+  .nm .h{color:var(--mut);font-size:13px}
+  .badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:999px;background:var(--acc);color:#fff;letter-spacing:.04em}
+  .badge.o{background:var(--ink)}
+  .txt{margin-top:6px;font-size:14px;line-height:1.5}
+  .acts{margin-top:10px;display:flex;gap:20px;color:var(--mut);font-size:13px;font-weight:600}
+  .acts span:hover{color:var(--acc)}
+  .live{border:2px solid var(--line);border-radius:4px;background:var(--ink);color:#fff;padding:10px 14px;font-size:12px;margin-bottom:12px;font-weight:600}
+  .live b{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="brut hero">
+      <span class="tag"><i class="dot"></i> Season 2 · the clan board is live</span>
+      <h1>Your influence<br><em>builds the clan.</em></h1>
+      <p class="sub">Klan reads only your public X data and turns it into a score, a card and points. Then you swear the oath.</p>
+      <div class="btns"><button class="btn p">Continue with X</button><button class="btn g">How it works</button></div>
+      <div class="stats">
+        <div><b>1.8K</b><span>Members</span></div>
+        <div><b>12M</b><span>Points</span></div>
+        <div><b>7</b><span>Clans</span></div>
+      </div>
+    </div>
+    <h2 style="margin-top:30px">Три шага · одна клятва</h2>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><b>Connect X</b><p>Read-only, public data only.</p></div>
+      <div class="step"><span class="n">02</span><b>Earn points</b><p>Same caps for everyone.</p></div>
+      <div class="step"><span class="n">03</span><b>Swear the oath</b><p>Clans rule the board.</p></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="live">● LIVE — <b>@cryptking_1</b> bought key of @klanofficial · $32.54</div>
+    <h2>Лента</h2>
+    <div class="brut">
+      <div class="post"><div class="av">KL</div><div><div class="nm"><b>Klan</b><span class="badge">LEGEND</span><span class="h">@klanofficial · 18h</span></div><p class="txt">Season 2 is live: everyone starts from zero. The clan that moves together, ranks together. 🐺</p><div class="acts"><span>💬 111</span><span>↻ 141</span><span>♥ 290</span></div></div></div>
+      <div class="post"><div class="av">QU</div><div><div class="nm"><b>Quinn</b><span class="badge o">CHIEFTAIN</span><span class="h">@muquinn5 · 1h</span></div><p class="txt">Just staked. Now send it baby 😎</p><div class="acts"><span>💬 4</span><span>↻ 4</span><span>♥ 21</span></div></div></div>
+      <div class="post"><div class="av">FZ</div><div><div class="nm"><b>Fizzy</b><span class="h">@Fizz_Fx · 1h</span></div><p class="txt">GM guys it's my first day on Klan and I'm liking it</p><div class="acts"><span>💬 5</span><span>↻ 2</span><span>♥ 10</span></div></div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // The whole app is session-driven and dynamic (feed, session, leaderboards),
+  // so the Cache Components model brings no benefit here.
+  cacheComponents: false,
   turbopack: {
     rules: {
       "*.css": {
