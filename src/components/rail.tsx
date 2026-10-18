@@ -9,17 +9,17 @@ type ClanWithPoints = { id: string; slug: string; name: string; color: string; p
 export function LiveTicker({ trades }: { trades: Trade[] }) {
   const items = [...trades, ...trades];
   return (
-    <section aria-label="Live trades" className="ticker mb-4 flex items-center px-4 py-2.5 shadow-[4px_4px_0_#141210]">
+    <section aria-label="Live trades" className="ticker mb-4 flex items-center px-4 py-2.5">
       <div className="ticker-viewport min-w-0 flex-1 overflow-hidden">
         <div className="ticker-track">
           {items.map((t, i) => (
             <span key={`${t.id}_${i}`} className="inline-flex items-center gap-1.5 text-[13px]">
-              <span className="font-bold text-white">@{t.buyerHandle}</span>
-              <span className="font-bold text-lime">{t.action}</span>
-              <span className="text-white/60">key of</span>
-              <span className="font-bold text-white">@{t.keyOwnerHandle}</span>
-              <span className="text-white/40">·</span>
-              <span className="font-mono text-white/80">${t.priceUsd.toFixed(2)}</span>
+              <span className="font-semibold text-foreground">@{t.buyerHandle}</span>
+              <span className="font-semibold text-gold">{t.action}</span>
+              <span className="text-muted">key of</span>
+              <span className="font-semibold text-foreground">@{t.keyOwnerHandle}</span>
+              <span className="text-muted/50">·</span>
+              <span className="font-mono text-gold-bright/90">${t.priceUsd.toFixed(2)}</span>
             </span>
           ))}
         </div>
@@ -49,7 +49,7 @@ export function RightRail({
 
       {!user && (
         <div className="card mb-4 p-4">
-          <h2 className="text-lg font-black">New to Klan?</h2>
+          <h2 className="display text-lg">New to Klan?</h2>
           <p className="mt-1 text-sm text-muted">Connect X to get your card, your points and your own keys.</p>
           <Link href="/signin" className="btn-primary mt-3 w-full">
             <span className="inline-flex items-center gap-[0.3em]">
@@ -60,7 +60,7 @@ export function RightRail({
       )}
 
       <div className="card mb-4 p-4">
-        <h2 className="mb-3 text-lg font-black">Live trades</h2>
+        <h2 className="display mb-3 text-lg">Live trades</h2>
         <ul className="space-y-3">
           {trades.slice(0, 5).map((t) => (
             <li key={t.id} className="flex items-center justify-between gap-2 text-sm">
@@ -78,7 +78,7 @@ export function RightRail({
       </div>
 
       <div className="card mb-4 p-4">
-        <h2 className="mb-3 text-lg font-black">Trending clans</h2>
+        <h2 className="display mb-3 text-lg">Trending clans</h2>
         <ul className="space-y-3">
           {clans.slice(0, 5).map((c) => (
             <li key={c.id}>
@@ -92,7 +92,7 @@ export function RightRail({
       </div>
 
       <div className="card p-4">
-        <h2 className="mb-3 text-lg font-black">New on Klan</h2>
+        <h2 className="display mb-3 text-lg">New on Klan</h2>
         <ul className="space-y-3">
           {newMembers.map((m) => (
             <li key={m.id}>

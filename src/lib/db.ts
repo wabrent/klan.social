@@ -80,7 +80,7 @@ const SEED_CLANS: Clan[] = [
     motto: "The pack hunts together.",
     description:
       "The oldest clan on Klan. Wolves run the daily raids: engagement trains, quote storms and the loudest GM on the timeline.",
-    color: "#ff4d17",
+    color: "#d4a44c",
     createdAt: daysAgo(210),
   },
   {
@@ -90,7 +90,7 @@ const SEED_CLANS: Clan[] = [
     motto: "We collect what glitters.",
     description:
       "Key traders and airdrop hunters. Crows watch every curve, every launchpad and every new season pool.",
-    color: "#141210",
+    color: "#7a9e9f",
     createdAt: daysAgo(190),
   },
   {
@@ -100,7 +100,7 @@ const SEED_CLANS: Clan[] = [
     motto: "Loud, proud, ranked.",
     description:
       "Battle specialists. The Lion Order has the most wins in Klan Battles and the highest weekly treasury payouts.",
-    color: "#d6a000",
+    color: "#e0b060",
     createdAt: daysAgo(175),
   },
   {
@@ -110,7 +110,7 @@ const SEED_CLANS: Clan[] = [
     motto: "Post less, rank higher.",
     description:
       "Builders and lurkers who let engagement rate do the talking. Home of the smallest-and-deadliest battle records.",
-    color: "#b3260b",
+    color: "#c65c47",
     createdAt: daysAgo(160),
   },
   {
@@ -120,7 +120,7 @@ const SEED_CLANS: Clan[] = [
     motto: "Slow weight, heavy hits.",
     description:
       "Long-horizon holders. Bears stake, hold keys through the dips and farm every daily task since season one.",
-    color: "#1d4ed8",
+    color: "#8a9a6b",
     createdAt: daysAgo(150),
   },
   {
@@ -129,7 +129,7 @@ const SEED_CLANS: Clan[] = [
     name: "Green Snakes",
     motto: "Two thousand characters.",
     description: "Writers and threads-maxis. Snakes turn the Spark post length into an art form.",
-    color: "#0f9d58",
+    color: "#9d8bb5",
     createdAt: daysAgo(130),
   },
   {
@@ -138,7 +138,7 @@ const SEED_CLANS: Clan[] = [
     name: "Night Hawks",
     motto: "Online when you sleep.",
     description: "The 3 AM shift. Hawks keep the ticker moving across every timezone on the board.",
-    color: "#7c3aed",
+    color: "#b58f6a",
     createdAt: daysAgo(120),
   },
   {
@@ -147,7 +147,7 @@ const SEED_CLANS: Clan[] = [
     name: "Clanless",
     motto: "Riding solo.",
     description: "Members who have not sworn the oath to any clan yet.",
-    color: "#a09a8f",
+    color: "#9c938a",
     createdAt: daysAgo(300),
   },
 ];

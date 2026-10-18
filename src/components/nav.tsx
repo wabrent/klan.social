@@ -44,7 +44,7 @@ export function Sidebar({ user }: { user: User | null }) {
     <aside className="sticky top-0 hidden h-screen w-[76px] shrink-0 border-r border-edge px-2 py-4 md:block lg:w-[260px] lg:px-4">
       <div className="flex h-full min-h-0 flex-col">
         <Link href="/" className="flex h-12 items-center gap-2.5 px-2" aria-label="Klan home">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] border-2 border-edge bg-surface shadow-[3px_3px_0_#141210]">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-edge bg-surface shadow-soft">
             <KlanEmblem className="h-6 w-6" />
           </span>
           <span className="hidden lg:block">
@@ -59,10 +59,10 @@ export function Sidebar({ user }: { user: User | null }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group flex h-11 shrink-0 items-center gap-3.5 rounded-[4px] border-2 px-3.5 transition-all ${
+                className={`group flex h-11 shrink-0 items-center gap-3.5 rounded-[10px] border px-3.5 transition-all ${
                   active
-                    ? "border-edge bg-surface font-extrabold text-foreground shadow-[3px_3px_0_#141210]"
-                    : "border-transparent font-semibold text-muted hover:bg-surface-2 hover:text-foreground"
+                    ? "border-gold/40 bg-surface font-semibold text-foreground shadow-soft"
+                    : "border-transparent font-medium text-muted hover:bg-surface-2 hover:text-foreground"
                 }`}
               >
                 <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden className={`h-[22px] w-[22px] shrink-0 transition-colors ${active ? "text-clay" : ""}`}>
@@ -143,8 +143,8 @@ export function KlanHeadIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>
       <path fill="currentColor" d="M12 2c-3 2-5 5-5 9 0 2 .6 3.7 1.7 5.2L7 21h3l1.4-2h1.2L14 21h3l-1.7-4.8C16.4 14.7 17 13 17 11c0-4-2-7-5-9z" />
-      <circle cx="10" cy="10.5" r="1.2" fill="#f5f2ea" />
-      <circle cx="14" cy="10.5" r="1.2" fill="#f5f2ea" />
+      <circle cx="10" cy="10.5" r="1.2" fill="#0c0a09" />
+      <circle cx="14" cy="10.5" r="1.2" fill="#0c0a09" />
     </svg>
   );
 }

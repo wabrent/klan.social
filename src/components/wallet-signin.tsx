@@ -52,7 +52,7 @@ export function WalletSignIn() {
       <button type="button" onClick={signIn} disabled={busy} className="btn-ghost w-full disabled:opacity-50">
         {busy ? "Проверяем подпись…" : `Войти кошельком · ${CHAIN.name}`}
       </button>
-      {error && <p className="mt-2 text-xs font-semibold text-[#b3260b]">{error}</p>}
+      {error && <p className="mt-2 text-xs font-semibold text-[#e8927d]">{error}</p>}
     </div>
   );
 }

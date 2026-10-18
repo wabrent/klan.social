@@ -38,11 +38,11 @@ export type Tier = {
 };
 
 export const TIERS: Tier[] = [
-  { name: "Initiate", min: 0, color: "#a09a8f", frame: "linear-gradient(135deg,#a09a8f,#6f6a61)" },
-  { name: "Member", min: 50_000, color: "#6f6a61", frame: "linear-gradient(135deg,#6f6a61,#3d3a34)" },
-  { name: "Elder", min: 100_000, color: "#141210", frame: "linear-gradient(135deg,#3d3a34,#141210)" },
-  { name: "Chieftain", min: 500_000, color: "#ff4d17", frame: "linear-gradient(135deg,#ff4d17,#d63a08)" },
-  { name: "Legend", min: 2_000_000, color: "#b3260b", frame: "linear-gradient(135deg,#ff4d17,#b3260b)" },
+  { name: "Initiate", min: 0, color: "#9c938a", frame: "linear-gradient(135deg,#9c938a,#6f6a61)" },
+  { name: "Member", min: 50_000, color: "#b8a06a", frame: "linear-gradient(135deg,#b8a06a,#8a7448)" },
+  { name: "Elder", min: 100_000, color: "#cfa85e", frame: "linear-gradient(135deg,#cfa85e,#a97e2f)" },
+  { name: "Chieftain", min: 500_000, color: "#d4a44c", frame: "linear-gradient(135deg,#f0c674,#d4a44c)" },
+  { name: "Legend", min: 2_000_000, color: "#f0c674", frame: "linear-gradient(135deg,#ffe4a8,#f0c674)" },
 ];
 
 export function tierOf(points: number): Tier {

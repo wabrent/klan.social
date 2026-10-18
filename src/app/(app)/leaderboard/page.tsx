@@ -21,7 +21,7 @@ export default async function LeaderboardPage({ searchParams }: PageProps<"/lead
   return (
     <div className="pb-10">
       <header className="border-b border-edge px-5 py-6">
-        <h1 className="text-2xl font-black">Leaderboard</h1>
+        <h1 className="display text-3xl">Leaderboard</h1>
         <p className="mt-1 text-sm text-muted">
           Points move every minute: keys, tasks and clan raids all count. Same rules, same caps, for everyone.
         </p>
@@ -38,7 +38,7 @@ export default async function LeaderboardPage({ searchParams }: PageProps<"/lead
             aria-selected={tab === t.id}
             href={`/leaderboard?tab=${t.id}`}
             className={`whitespace-nowrap border-b-2 px-5 py-3.5 text-sm font-semibold ${
-              tab === t.id ? "border-lime text-foreground" : "border-transparent text-muted hover:text-foreground"
+              tab === t.id ? "border-gold text-gold" : "border-transparent text-muted hover:text-foreground"
             }`}
           >
             {t.label}
@@ -50,9 +50,9 @@ export default async function LeaderboardPage({ searchParams }: PageProps<"/lead
         <ol>
           {clans.map((c, i) => (
             <li key={c.id} className="row-card flex items-center gap-3 px-5 py-3.5">
-              <span className={`w-8 shrink-0 font-mono text-sm ${i < 3 ? "text-lime" : "text-muted"}`}>{i + 1}</span>
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border-2 border-edge" style={{ background: c.color }}>
-                <span className="h-3 w-3 rounded-full" style={{ background: "#fffdf5" }} />
+              <span className={`w-8 shrink-0 font-mono text-sm ${i < 3 ? "text-gold" : "text-muted"}`}>{i + 1}</span>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border" style={{ borderColor: `${c.color}66`, background: `${c.color}1a` }}>
+                <span className="h-3 w-3 rounded-full" style={{ background: c.color }} />
               </span>
               <span className="min-w-0 flex-1">
                 <Link href={`/clans/${c.slug}`} className="block truncate font-bold hover:underline">
@@ -73,8 +73,8 @@ export default async function LeaderboardPage({ searchParams }: PageProps<"/lead
             const clan = m.clanId ? clansById.get(m.clanId) : null;
             const mine = m.id === user?.id;
             return (
-              <li key={m.id} className={`row-card flex items-center gap-3 px-5 py-3.5 ${mine ? "bg-lime/5" : ""}`}>
-                <span className={`w-8 shrink-0 font-mono text-sm ${i < 3 ? "text-lime" : "text-muted"}`}>{i + 1}</span>
+              <li key={m.id} className={`row-card flex items-center gap-3 px-5 py-3.5 ${mine ? "bg-gold/[0.06]" : ""}`}>
+                <span className={`w-8 shrink-0 font-mono text-sm ${i < 3 ? "text-gold" : "text-muted"}`}>{i + 1}</span>
                 <Link href={`/u/${m.handle}`}>
                   <Avatar name={m.name} avatarUrl={m.avatarUrl} clanColor={clan?.color} />
                 </Link>

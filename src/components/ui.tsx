@@ -1,16 +1,6 @@
 import { tierOf } from "@/lib/scoring";
 
-/** Контрастный текст поверх плоского цвета (для бруталистских плашек). */
-function inkOn(hex: string) {
-  const h = hex.replace("#", "");
-  if (h.length !== 6) return "#fffdf5";
-  const r = parseInt(h.slice(0, 2), 16);
-  const g = parseInt(h.slice(2, 4), 16);
-  const b = parseInt(h.slice(4, 6), 16);
-  return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.6 ? "#141210" : "#fffdf5";
-}
-
-/** Display wordmark: heavy uppercase "Klan" with an orange dot. */
+/** Display wordmark: refined "Klan" with a gold serif dot. */
 export function Wordmark({ size = "text-3xl" }: { size?: string }) {
   return <span className={`wordmark ${size}`}>Klan</span>;
 }
@@ -19,7 +9,7 @@ export function CheckBadge() {
   return (
     <svg viewBox="0 0 24 24" aria-label="Verified" className="h-4 w-4 shrink-0 text-lime">
       <path fill="currentColor" d="M12 1.5l2.3 2.1 3.1-.4 1 3 2.8 1.4-.9 3 1.9 2.5-2.2 2.3.3 3.1-3.1.6-1.6 2.8-2.9-1.2-2.9 1.2-1.6-2.8-3.1-.6.3-3.1L1.9 14l1.9-2.5-.9-3 2.8-1.4 1-3 3.1.4L12 1.5z" />
-      <path d="M8.4 12.2l2.4 2.4 4.8-4.9" stroke="#fffdf5" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M8.4 12.2l2.4 2.4 4.8-4.9" stroke="#241c0c" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -28,8 +18,8 @@ export function TierBadge({ points, className = "" }: { points: number; classNam
   const tier = tierOf(points);
   return (
     <span
-      className={`inline-flex items-center rounded-[3px] border-2 border-edge px-1.5 py-px text-[10px] font-extrabold tracking-wider ${className}`}
-      style={{ color: inkOn(tier.color), background: tier.color }}
+      className={`chip ${className}`}
+      style={{ color: tier.color, background: `${tier.color}1f`, borderColor: `${tier.color}55` }}
     >
       {tier.name.toUpperCase()}
     </span>
@@ -39,10 +29,10 @@ export function TierBadge({ points, className = "" }: { points: number; classNam
 export function ClanPill({ name, color }: { name: string; color: string }) {
   return (
     <span
-      className="inline-flex items-center gap-1.5 rounded-[3px] border-2 border-edge px-1.5 py-0.5 text-[11px] font-extrabold"
-      style={{ color: inkOn(color), background: color }}
+      className="chip"
+      style={{ color, background: `${color}1a`, borderColor: `${color}4d` }}
     >
-      <span className="h-1.5 w-1.5 rounded-full border" style={{ background: inkOn(color), borderColor: inkOn(color) === "#141210" ? "#141210" : "#fffdf5" }} />
+      <span className="h-1.5 w-1.5 rounded-full" style={{ background: color }} />
       {name}
     </span>
   );
@@ -69,7 +59,7 @@ export function Avatar({
   return (
     // eslint-disable-next-line @next/next/no-img-element -- remote X avatars + local initials fallback
     <img
-      src={avatarUrl ?? `data:image/svg+xml;utf8,${encodeURIComponent(avatarSvg(initials || "K", clanColor ?? "#c9f24d"))}`}
+      src={avatarUrl ?? `data:image/svg+xml;utf8,${encodeURIComponent(avatarSvg(initials || "K", clanColor ?? "#d4a44c"))}`}
       alt={name}
       width={size}
       height={size}
@@ -81,7 +71,7 @@ export function Avatar({
 }
 
 function avatarSvg(initials: string, color: string) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" fill="#fffdf5"/><rect x="4" y="4" width="88" height="88" rx="10" fill="none" stroke="#141210" stroke-width="4"/><circle cx="48" cy="48" r="30" fill="${color}"/><text x="48" y="58" font-family="Arial" font-size="26" font-weight="900" fill="#fffdf5" text-anchor="middle">${initials}</text></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" rx="48" fill="#1d1917"/><circle cx="48" cy="48" r="30" fill="${color}26"/><circle cx="48" cy="48" r="30" fill="none" stroke="${color}" stroke-width="2"/><text x="48" y="57" font-family="Arial" font-size="26" font-weight="700" fill="${color}" text-anchor="middle">${initials}</text></svg>`;
 }
 
 export function ScoreBar({ score }: { score: number }) {

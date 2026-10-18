@@ -21,14 +21,17 @@ export default async function ClanPage({ params }: PageProps<"/clans/[slug]">) {
 
   return (
     <div className="pb-10">
-      <header className="relative border-b-2 border-edge px-5 py-8">
+      <header className="relative border-b border-edge px-5 py-8">
         <div className="relative flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <span className="flex h-16 w-16 items-center justify-center rounded-[4px] border-2 border-edge shadow-[4px_4px_0_#141210]" style={{ background: clan.color }}>
-              <span className="h-5 w-5 rounded-full border-2" style={{ background: "#fffdf5", borderColor: "#fffdf5" }} />
+            <span
+              className="flex h-16 w-16 items-center justify-center rounded-full border shadow-soft"
+              style={{ borderColor: `${clan.color}66`, background: `${clan.color}1a` }}
+            >
+              <span className="h-5 w-5 rounded-full" style={{ background: clan.color, boxShadow: `0 0 14px ${clan.color}` }} />
             </span>
             <div>
-              <h1 className="text-3xl font-black" style={{ color: clan.color }}>
+              <h1 className="display text-4xl" style={{ color: clan.color }}>
                 {clan.name}
               </h1>
               <p className="text-sm text-muted italic">“{clan.motto}”</p>
@@ -60,19 +63,19 @@ export default async function ClanPage({ params }: PageProps<"/clans/[slug]">) {
             { label: "Members", value: String(members.length) },
             { label: "Founded", value: new Date(clan.createdAt).toLocaleDateString("en-US", { month: "short", year: "numeric" }) },
           ].map((s) => (
-            <div key={s.label} className="rounded-[4px] border-2 border-edge bg-surface p-3">
-              <dt className="text-[11px] tracking-wider text-muted uppercase">{s.label}</dt>
-              <dd className="font-mono text-lg font-bold">{s.value}</dd>
+            <div key={s.label} className="rounded-[12px] border border-edge bg-black/25 p-3">
+              <dt className="text-[10px] font-bold tracking-[0.18em] text-muted uppercase">{s.label}</dt>
+              <dd className="font-mono text-lg font-semibold">{s.value}</dd>
             </div>
           ))}
         </dl>
       </header>
 
-      <h2 className="px-5 pt-6 pb-2 text-lg font-black">Members</h2>
+      <h2 className="display px-5 pt-6 pb-2 text-xl">Members</h2>
       <ol>
         {members.map((m, i) => (
-          <li key={m.id} className={`row-card flex items-center gap-3 px-5 py-3.5 ${m.id === user?.id ? "bg-lime/5" : ""}`}>
-            <span className={`w-8 shrink-0 font-mono text-sm ${i < 3 ? "text-lime" : "text-muted"}`}>{i + 1}</span>
+          <li key={m.id} className={`row-card flex items-center gap-3 px-5 py-3.5 ${m.id === user?.id ? "bg-gold/[0.06]" : ""}`}>
+            <span className={`w-8 shrink-0 font-mono text-sm ${i < 3 ? "text-gold" : "text-muted"}`}>{i + 1}</span>
             <Link href={`/u/${m.handle}`}>
               <Avatar name={m.name} avatarUrl={m.avatarUrl} clanColor={clan.color} />
             </Link>

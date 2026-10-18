@@ -22,18 +22,18 @@ export default async function ProfilePage({ params }: PageProps<"/u/[handle]">) 
   return (
     <div className="pb-10">
       {/* ---------------- the card ---------------- */}
-      <header className="border-b-2 border-edge">
-        <div aria-hidden className="h-6 w-full border-b-2 border-edge" style={{ background: tier.color }} />
+      <header className="border-b border-edge">
+        <div aria-hidden className="h-[3px] w-full" style={{ background: `linear-gradient(90deg, transparent, ${tier.color}, transparent)` }} />
         <div className="px-5 pb-6">
           <div className="-mt-10 flex items-end justify-between gap-4">
-            <span className="rounded-[6px] border-2 border-edge bg-background p-1 shadow-[4px_4px_0_#141210]">
+            <span className="rounded-full bg-background p-1 shadow-soft">
               <Avatar name={user.name} avatarUrl={user.avatarUrl} clanColor={clan?.color} size={80} />
             </span>
             <TierBadge points={user.points} className="mb-2 text-xs" />
           </div>
 
           <div className="mt-3 flex items-center gap-2">
-            <h1 className="text-2xl font-black">{user.name}</h1>
+            <h1 className="display text-3xl">{user.name}</h1>
             {user.verified && <CheckBadge />}
           </div>
           <p className="text-sm text-muted">@{user.handle} · #{rank} on the board</p>
@@ -43,10 +43,10 @@ export default async function ProfilePage({ params }: PageProps<"/u/[handle]">) 
                 href={explorerAddressUrl(user.walletAddress)}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-[3px] border-2 border-edge bg-surface-2 px-2 py-0.5 font-mono text-[11px] font-bold hover:bg-lime/10"
+                className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/[0.08] px-3 py-1 font-mono text-[11px] font-semibold text-gold hover:bg-gold/[0.14]"
                 title={`Адрес в ${CHAIN.name}`}
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                 {shortAddress(user.walletAddress)}
               </a>
             </p>
@@ -63,12 +63,12 @@ export default async function ProfilePage({ params }: PageProps<"/u/[handle]">) 
 
           <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <div className="card p-3">
-              <dt className="text-[11px] tracking-wider text-muted uppercase">Klan Value</dt>
-              <dd className="font-mono text-lg font-bold text-lime">${value.toLocaleString("en-US", { minimumFractionDigits: 2 })}</dd>
+              <dt className="text-[10px] font-bold tracking-[0.18em] text-muted uppercase">Klan Value</dt>
+              <dd className="font-mono text-lg font-semibold text-gold">${value.toLocaleString("en-US", { minimumFractionDigits: 2 })}</dd>
             </div>
             <div className="card p-3">
-              <dt className="text-[11px] tracking-wider text-muted uppercase">Klan Score</dt>
-              <dd className="font-mono text-lg font-bold">
+              <dt className="text-[10px] font-bold tracking-[0.18em] text-muted uppercase">Klan Score</dt>
+              <dd className="font-mono text-lg font-semibold">
                 {score}
                 <span className="text-sm text-muted">/100</span>
               </dd>
@@ -77,12 +77,12 @@ export default async function ProfilePage({ params }: PageProps<"/u/[handle]">) 
               </div>
             </div>
             <div className="card p-3">
-              <dt className="text-[11px] tracking-wider text-muted uppercase">Points</dt>
-              <dd className="font-mono text-lg font-bold">{compact(user.points)}</dd>
+              <dt className="text-[10px] font-bold tracking-[0.18em] text-muted uppercase">Points</dt>
+              <dd className="font-mono text-lg font-semibold">{compact(user.points)}</dd>
             </div>
             <div className="card p-3">
-              <dt className="text-[11px] tracking-wider text-muted uppercase">Followers</dt>
-              <dd className="font-mono text-lg font-bold">{compact(user.followers)}</dd>
+              <dt className="text-[10px] font-bold tracking-[0.18em] text-muted uppercase">Followers</dt>
+              <dd className="font-mono text-lg font-semibold">{compact(user.followers)}</dd>
             </div>
           </dl>
 
@@ -94,7 +94,7 @@ export default async function ProfilePage({ params }: PageProps<"/u/[handle]">) 
       </header>
 
       {/* ---------------- posts ---------------- */}
-      <h2 className="px-5 pt-6 pb-2 text-lg font-black">Posts</h2>
+      <h2 className="display px-5 pt-6 pb-2 text-xl">Posts</h2>
       <div className="flex flex-col">
         {posts.map((post) => (
           <article key={post.id} className="row-card px-5 py-4">

@@ -55,7 +55,7 @@ export function OathButton({ clanSlug, clanName, hasWallet }: { clanSlug: string
           </a>
         </p>
       )}
-      {error && <p className="mt-2 text-xs font-semibold text-[#b3260b]">{error}</p>}
+      {error && <p className="mt-2 text-xs font-semibold text-[#e8927d]">{error}</p>}
     </div>
   );
 }

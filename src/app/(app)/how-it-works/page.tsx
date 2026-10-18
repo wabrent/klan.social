@@ -3,7 +3,7 @@ import { POINT_RULES, TIERS } from "@/lib/scoring";
 
 function H2({ children, id }: { children: React.ReactNode; id: string }) {
   return (
-    <h2 id={id} className="mt-12 text-2xl font-black">
+    <h2 id={id} className="display mt-12 text-2xl">
       {children}
     </h2>
   );
@@ -12,7 +12,8 @@ function H2({ children, id }: { children: React.ReactNode; id: string }) {
 export default function HowItWorksPage() {
   return (
     <article className="mx-auto max-w-[720px] px-5 py-10 pb-24">
-      <h1 className="text-4xl font-black">How Klan works</h1>
+      <h1 className="display text-5xl">How Klan works</h1>
+      <div className="rule-gold mt-4 w-32" />
       <p className="mt-3 text-muted leading-7">
         Klan in plain words. Your X influence is scored, the score and your actions become points, your points feed your clan — and at
         the snapshot the points decide your share of the airdrop.
@@ -86,7 +87,7 @@ export default function HowItWorksPage() {
         <li>Flagged accounts cannot enter battles or claim referral points.</li>
       </ul>
 
-      <p className="mt-10 rounded-[4px] border-2 border-edge bg-surface p-4 text-xs text-muted">
+      <p className="mt-10 rounded-[12px] border border-edge bg-black/25 p-4 text-xs text-muted">
         Disclaimer. Klan Score and Influence Value are in-app scores, not market values of any account. Klan Points have no monetary
         value. The airdrop, its size, timing and claim rules are not final until announced. Nothing here is financial advice.
       </p>
